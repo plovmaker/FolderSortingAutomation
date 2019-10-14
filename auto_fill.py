@@ -6,14 +6,14 @@ import json
 
 
 class MyHandler(FileSystemEventHandler):
-
+    
     def on_modified(self, event):
         for filename in os.listdir(folder_destination):
-            if '.mp3' in filename:
+            if '.mp3' in filename or '.wav' in filename or 'mp.4' in filename:
                 src = folder_destination + '/' + filename
                 new_destination = folder_to_store_music + '/' + filename
                 os.rename(src, new_destination)
-            elif '.pdf' in filename or '.doc' in filename:
+            elif '.pdf' in filename or '.doc' in filename or '.pages' in filename:
                 src = folder_destination + '/' + filename
                 new_destination = folder_to_store_text + '/' + filename
                 os.rename(src, new_destination)
